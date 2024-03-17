@@ -1,0 +1,15 @@
+<script>
+function deletePlayer(ID) {
+    if (confirm("Êtes-vous sûr de vouloir supprimer ce joueur ?")) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "delete_player.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                location.reload();
+            }
+        };
+        xhr.send("ID=" + ID);
+    }
+}
+</script>
